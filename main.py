@@ -12,7 +12,7 @@ soup = BeautifulSoup(page.text, "html.parser")
 # element_h1 = soup.find_all("h1")
 # element =
 #  soup.find("p")
-print(soup)
+# print(soup)
 
 citations = []
 
@@ -32,3 +32,9 @@ for element in author_and_citations:
 with open("citations.csv", "w", encoding = "utf-8", newline = "") as csv_file:
     # Ecrire dans le fichier
     ecriture = csv.writer(csv_file)
+    # enregistrement des citations
+    for citation in citations:
+        ecriture.writerow(citation.values())
+
+# fermeture du fichier 
+csv_file.close()
